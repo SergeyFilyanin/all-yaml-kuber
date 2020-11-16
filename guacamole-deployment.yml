@@ -1,0 +1,199 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: guacamole
+  namespace: default
+  selfLink: /apis/apps/v1/namespaces/default/deployments/guacamole
+  uid: 5e31b26a-0f9b-4351-9ea4-89cedd259fef
+  resourceVersion: '8879'
+  generation: 1
+  creationTimestamp: '2020-07-05T15:58:00Z'
+  labels:
+    app: guacamole
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"guacamole"},"name":"guacamole","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"name":"guacamole"}},"template":{"metadata":{"labels":{"name":"guacamole"}},"spec":{"containers":[{"env":[{"name":"HOME","value":"/opt"},{"name":"GUACAMOLE_HOME","value":"/opt/guacamole"},{"name":"GUACD_HOSTNAME","value":"guacd"},{"name":"GUACD_PORT","value":"4822"},{"name":"GUACD_SERVICE_PORT","value":"4822"},{"name":"GUACAMOLE_PROPERTIES","value":"/opt/guacamole/guacamole.properties"},{"name":"GUACAMOLE_LIB","value":"/opt/guacamole/lib"}],"image":"sergeyfilyanin/guacamole:pg","imagePullPolicy":"Always","name":"guacamole","resources":{"requests":{"cpu":"200m","memory":"400Mi"}}}]}}}}
+  managedFields:
+    - manager: dashboard
+      operation: Update
+      apiVersion: apps/v1
+      time: '2020-07-05T15:58:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector':
+            'f:matchLabels':
+              .: {}
+              'f:name': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:name': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"guacamole"}':
+                  .: {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"GUACAMOLE_HOME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GUACAMOLE_LIB"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GUACAMOLE_PROPERTIES"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GUACD_HOSTNAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GUACD_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GUACD_SERVICE_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"HOME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:image': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:resources':
+                    .: {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2020-07-05T15:59:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: guacamole
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: guacamole
+    spec:
+      containers:
+        - name: guacamole
+          image: 'sergeyfilyanin/guacamole:pg'
+          env:
+            - name: HOME
+              value: /opt
+            - name: GUACAMOLE_HOME
+              value: /opt/guacamole
+            - name: GUACD_HOSTNAME
+              value: guacd
+            - name: GUACD_PORT
+              value: '4822'
+            - name: GUACD_SERVICE_PORT
+              value: '4822'
+            - name: GUACAMOLE_PROPERTIES
+              value: /opt/guacamole/guacamole.properties
+            - name: GUACAMOLE_LIB
+              value: /opt/guacamole/lib
+          resources:
+            requests:
+              cpu: 200m
+              memory: 400Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 1
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2020-07-05T15:59:05Z'
+      lastTransitionTime: '2020-07-05T15:59:05Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2020-07-05T15:59:05Z'
+      lastTransitionTime: '2020-07-05T15:58:00Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "guacamole-66864f5cc4" has successfully progressed.
